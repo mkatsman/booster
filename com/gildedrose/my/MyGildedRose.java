@@ -1,6 +1,5 @@
 package com.gildedrose.my;
 
-
 class MyGildedRose {
 	MyItem[] items;
 
@@ -9,8 +8,8 @@ class MyGildedRose {
 	}
 
 	public static MyItem updateQuality(MyItem item) {
-			ItemProcessor processor = ItemProcessorFactory.getProcessor(item.type);
-		    processor.updateQuality(item);
+		ItemProcessor processor = ItemProcessorFactory.getProcessor(item.type);
+		processor.updateQuality(item);
 		return item;
 	}
 
@@ -20,5 +19,5 @@ class MyGildedRose {
 		}
 		return items;
 	}
-	
+
 }
