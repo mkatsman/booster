@@ -32,11 +32,10 @@ class MyGildedRose {
 		return item;
 	}
 
-	public MyItem[] updateQuality() {
+	public void updateQuality() {
 		for (int i = 0; i < items.length; i++) {
 			updateQuality(items[i]);
 		}
-		return items;
 	}
 
 	public static  ItemProcessor getProcessor(String criteria) {

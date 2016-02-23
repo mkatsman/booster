@@ -23,7 +23,7 @@ public class MyGildedRoseTest {
 		Assert.assertEquals(myItems[0].name, "Sulfuras, Hand of Ragnaros");
 		// does not sell or decreases
 		for (int i = 0; i < 80; i++) {
-			myItems = myApp.updateQuality();
+			myApp.updateQuality();
 			// resets to 50 and then stays 50.
 			checkItem(myItems[0], 0, 50);
 		}
@@ -50,16 +50,16 @@ public class MyGildedRoseTest {
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], 1, 4);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], 0, 3);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// quality drops twice as fast after the sellin date, but never < 0
 		checkItem(myItems[0], -1, 1);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], -2, 0);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], -3, 0);
 
 	}
@@ -74,14 +74,14 @@ public class MyGildedRoseTest {
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// it will first set it to 50 and then decrease by 1;
 		checkItem(myItems[0], 0, 49);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// quality drops twice as fast after the sellin date, but never < 0
 
 		checkItem(myItems[0], -1, 47);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], -2, 45);
 
 	}
@@ -96,13 +96,13 @@ public class MyGildedRoseTest {
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// it will first set it to 0 and then it should stay 0;
 		checkItem(myItems[0], 0, 0);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 
 		checkItem(myItems[0], -1, 0);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], -2, 0);
 
 	}
@@ -116,16 +116,16 @@ public class MyGildedRoseTest {
 				MyGildedRose.AGED_BRIE) };
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 
 		Assert.assertEquals(myItems[0].name, "Aged Brie");
 		// increased by 1
 		checkItem(myItems[0], 1, 1);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		checkItem(myItems[0], 0, 2);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// keeps increasing after the seelin date
 		checkItem(myItems[0], -1, 3);
 		// reinitialize negative
@@ -133,7 +133,7 @@ public class MyGildedRoseTest {
 		myItems[0] = new MyItem("Aged Brie", 2, -5,
 				MyGildedRose.AGED_BRIE);
 		myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// it will first set it to 0, then increased by 1
 		checkItem(myItems[0], 1, 1);
 
@@ -141,13 +141,13 @@ public class MyGildedRoseTest {
 		myItems[0] = new MyItem("Aged Brie", 2, 65,
 				MyGildedRose.AGED_BRIE);
 		myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// it will first set it to 50, then it should stay 50
 		checkItem(myItems[0], 1, 50);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// it will first set it to 50, then it should stay 50
 		checkItem(myItems[0], 0, 50);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 
 	}
 
@@ -158,18 +158,18 @@ public class MyGildedRoseTest {
 				MyGildedRose.CONJURED) };
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 
 		// decreased by 2
 		checkItem(myItems[0], 2, 4);
 
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// decreased by 2
 		checkItem(myItems[0], 1, 2);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// decreased by 2
 		checkItem(myItems[0], 0, 0);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 		// never negative;
 		checkItem(myItems[0], -1, 0);
 
@@ -184,18 +184,18 @@ public class MyGildedRoseTest {
 		// conjured
 
 		MyGildedRose myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		 myApp.updateQuality();
 
 		// decreased by 2
 		checkItem(myItems[0], 2, 4);
 
-		myItems = myApp.updateQuality();
+		 myApp.updateQuality();
 		// decreased by 2
 		checkItem(myItems[0], 1, 2);
-		myItems = myApp.updateQuality();
+		 myApp.updateQuality();
 		// decreased by 2
 		checkItem(myItems[0], 0, 0);
-		myItems = myApp.updateQuality();
+		 myApp.updateQuality();
 		// never negative;
 		checkItem(myItems[0], -1, 0);
 
@@ -221,7 +221,7 @@ public class MyGildedRoseTest {
 
 		// my modified path
 		MyGildedRose myApp = new MyGildedRose(myItems);
-		myItems = myApp.updateQuality();
+		myApp.updateQuality();
 
 		Assert.assertTrue(items.length > 0);
 
